@@ -7,6 +7,7 @@ public class AnimatedText : MonoBehaviour
     public TextMeshProUGUI textMeshPro;
     public float letterAppearDelay = 0.1f;
     public Color highlightedColor = Color.blue;
+    public string currentUUID = "";
 
     // Method to start the text animation
     public void StartTextAnimation(string fullText)
@@ -16,12 +17,16 @@ public class AnimatedText : MonoBehaviour
 
     IEnumerator AnimateText(string fullText)
     {
+        // Generate a unique id for this coroutine
+        string UUID = currentUUID = System.Guid.NewGuid().ToString();
         textMeshPro.text = ""; // Clear the text initially
 
         string[] words = fullText.Split(' ');
 
         for (int i = 0; i < words.Length; i++)
         {
+            if (UUID != currentUUID)
+                yield break;
             if (i > 0)
                 textMeshPro.text += " "; // Add space between words
 
@@ -37,6 +42,8 @@ public class AnimatedText : MonoBehaviour
 
                 foreach (char letter in coloredWord)
                 {
+                    if (UUID != currentUUID)
+                        yield break; // Stop the coroutine if the UUID has changed
                     if (letter == '<')
                         break;
                     textMeshPro.text += letter;
@@ -44,16 +51,13 @@ public class AnimatedText : MonoBehaviour
                 }
 
                 textMeshPro.text += "</color>";
-
-                // // Highlight the colored word
-                // textMeshPro.text = textMeshPro.text.Remove(startIndex, colorTag.Length + coloredWord.Length + 7);
-                // textMeshPro.text = textMeshPro.text.Insert(startIndex, "<color=" + ColorUtility.ToHtmlStringRGB(highlightedColor) + ">" + coloredWord + "</color>");
-
             }
             else
             {
                 foreach (char letter in words[i])
                 {
+                    if (UUID != currentUUID)
+                        yield break; // Stop the coroutine if the UUID has changed
                     textMeshPro.text += letter;
                     yield return new WaitForSeconds(letterAppearDelay);
                 }
