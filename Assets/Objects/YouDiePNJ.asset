@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e10ec117d37a76b47a086fa124afe0b4, type: 3}
-  m_Name: TestPNJ
+  m_Name: YouDiePNJ
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 1909d7eab201ca74cad68a7271a99afb, type: 3}
+  sprite: {fileID: 21300000, guid: 0655cb9f0529c1240ba3e5231abf7c6b, type: 3}
   type: 0
   possibleDialogs:
-  - {fileID: 11400000, guid: a0c6d867eaef29e4cad0cd662764a903, type: 2}
+  - {fileID: 0}

@@ -10,9 +10,9 @@ public class Queue : MonoBehaviour {
     public List<PNJ> pnjs;
     private readonly HashSet<string> runnableDialogs = new();
 
-    void Start() {
+    public void Initialize() {
         // Fill queue with basic PNJ
-        runnableDialogs.AddRange(allPnjs.FindAll(pnj => pnj.possibleDialogs.Find(diag => diag.availableByDefault)).Select(diag => diag.name));
+        runnableDialogs.AddRange(allPnjs.SelectMany(pnj => pnj.possibleDialogs.FindAll(diag => diag.availableByDefault)).Select(diag => diag.name));
         for (int i = 0; i < QUEUE_MAX_SIZE; i++) AddPNJToQueue();
     }
 
@@ -36,4 +36,10 @@ public class Queue : MonoBehaviour {
         runnableDialogs.AddRange(dialog.nextDialogs.Select(diag => diag.name));
         return dialog;
     }
+
+    public void Kick(int position) {
+        if (position < pnjs.Count && position > 0) pnjs.RemoveAt(position);
+        AddPNJToQueue();
+    }
+
 }

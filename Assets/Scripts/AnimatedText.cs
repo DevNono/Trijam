@@ -8,11 +8,6 @@ public class AnimatedText : MonoBehaviour
     public float letterAppearDelay = 0.1f;
     public Color highlightedColor = Color.blue;
 
-    void Start()
-    {
-        StartTextAnimation("This is a <color=red>red</color> and <color=blue>blue</color> animated text.");
-    }
-
     // Method to start the text animation
     public void StartTextAnimation(string fullText)
     {
