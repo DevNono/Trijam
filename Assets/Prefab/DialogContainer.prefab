@@ -318,8 +318,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000081062, y: 15}
-  m_SizeDelta: {x: 1053.812, y: 160.8798}
+  m_AnchoredPosition: {x: -12.3906, y: 3.2615967}
+  m_SizeDelta: {x: 1036.8569, y: 160.8799}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8833256799621570276
 CanvasRenderer:
@@ -349,16 +349,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor
+  m_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor
     vulputate elit, eget aliquam ante dapibus vel. Nulla imperdiet augue at condimentum
-    pharetra. Nulla consequat lorem velit, nec consectetur justo fermentum sed. Praesent
-    interdum ultricies nisi, ut accumsan dui accumsan nec. Maecenas malesuada, dolor
-    sed auctor elementum, urna nisl egestas mi, ut ornare lectus mauris a urna. Praesent
-    at lorem et purus ultricies bibendum. Nam at justo fringilla, tempor enim in,
-    mattis nisl. '
+    pharetra. Nulla consequat lorem velit, nec consectetur justo fermentum sed.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6dbfc1fccde8a1349a4a2c3333f97010, type: 2}
+  m_sharedMaterial: {fileID: -5069285874612906020, guid: 6dbfc1fccde8a1349a4a2c3333f97010, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -382,8 +378,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -478,6 +474,7 @@ MonoBehaviour:
   textMeshPro: {fileID: 6019810384915894105}
   letterAppearDelay: 0.05
   highlightedColor: {r: 0, g: 0, b: 1, a: 1}
+  currentUUID: 
 --- !u!114 &8350873274093924939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -649,7 +646,7 @@ RectTransform:
   m_GameObject: {fileID: 8167645340943161099}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5759455458024029905}
@@ -658,7 +655,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 25}
+  m_AnchoredPosition: {x: 0, y: 18}
   m_SizeDelta: {x: 370, y: 60}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &5853992762343526549

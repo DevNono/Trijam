@@ -11,6 +11,7 @@ public class Day : MonoBehaviour
     private GameObject pnjPrefab;
     [SerializeField]
     private Transform pnjQueue;
+    private bool firstDay = true;
 
     public int resource_money = 50;
     public int resource_fidelity = 50;
@@ -82,7 +83,13 @@ public class Day : MonoBehaviour
 
         if (remainingPNJCountOfTheDay < 1) {
             // Jump to next day
-            day_counter.UpdateTextValue($"{++dayNumber}");
+            if (firstDay == true) {
+                firstDay = false;
+                dayNumber = 1;
+            } else {
+                ++dayNumber;
+            }
+            day_counter.UpdateTextValue($"Day {dayNumber}");
             dayLength = remainingPNJCountOfTheDay = Random.Range(15, 21);
             kickCount += Mathf.CeilToInt(Random.Range(.2f, .5f) * resource_badness / 20f);
             kickCount = Mathf.Min(9, kickCount);
