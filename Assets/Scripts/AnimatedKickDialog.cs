@@ -8,15 +8,6 @@ public class AnimatedKickDialog : MonoBehaviour
     public GameObject canvas;
     public float fadeOutDuration = 0.2f;
 
-    void Start()
-    {
-        // Example: Spawn prefab
-        SpawnPrefabAtPosition(new Vector3(0f, 0f, 0f));
-
-        // Example: Delete child by index with fade-out animation
-        Delete(0);
-    }
-
     public void SpawnPrefabAtPosition(Vector3 spawnPosition)
     {
         if (prefabToSpawn != null && canvas != null)
@@ -94,10 +85,5 @@ public class AnimatedKickDialog : MonoBehaviour
         {
             Debug.LogWarning("Graphic component not found on the UI object.");
         }
-    }
-
-    public void Clicked()
-    {
-        Debug.Log("Clicked!");
     }
 }
