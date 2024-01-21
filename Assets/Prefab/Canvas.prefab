@@ -1126,6 +1126,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8569382579083430944}
     m_Modifications:
+    - target: {fileID: 2628892541299450016, guid: ea241cafe9ad92f45aeacd2855acd218, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1027.1282
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628892541299450016, guid: ea241cafe9ad92f45aeacd2855acd218, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 109.0807
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628892541299450016, guid: ea241cafe9ad92f45aeacd2855acd218, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 7.2413
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628892541299450016, guid: ea241cafe9ad92f45aeacd2855acd218, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 19.5403
+      objectReference: {fileID: 0}
     - target: {fileID: 3553064183231924139, guid: ea241cafe9ad92f45aeacd2855acd218, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1136,7 +1152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3553064183231924139, guid: ea241cafe9ad92f45aeacd2855acd218, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3553064183231924139, guid: ea241cafe9ad92f45aeacd2855acd218, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1144,7 +1160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3553064183231924139, guid: ea241cafe9ad92f45aeacd2855acd218, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3553064183231924139, guid: ea241cafe9ad92f45aeacd2855acd218, type: 3}
       propertyPath: m_AnchorMin.y
@@ -1205,6 +1221,45 @@ PrefabInstance:
     - target: {fileID: 3553064183231924139, guid: ea241cafe9ad92f45aeacd2855acd218, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5466109861862503551, guid: ea241cafe9ad92f45aeacd2855acd218, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5466109861862503551, guid: ea241cafe9ad92f45aeacd2855acd218, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5466109861862503551, guid: ea241cafe9ad92f45aeacd2855acd218, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5466109861862503551, guid: ea241cafe9ad92f45aeacd2855acd218, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759455458024029905, guid: ea241cafe9ad92f45aeacd2855acd218, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759455458024029905, guid: ea241cafe9ad92f45aeacd2855acd218, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759455458024029905, guid: ea241cafe9ad92f45aeacd2855acd218, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759455458024029905, guid: ea241cafe9ad92f45aeacd2855acd218, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6019810384915894105, guid: ea241cafe9ad92f45aeacd2855acd218, type: 3}
+      propertyPath: m_text
+      value: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor
+        vulputate elit, eget aliquam ante dapibus vel. Nulla imperdiet augue at condimentum
+        pharetra. Nulla consequat lorem velit, nec consectetur justo fermentum sed.
+        Praesent interdum ultricies nisi, ut accumsan dui accumsan nec. '
       objectReference: {fileID: 0}
     - target: {fileID: 7282204743415354356, guid: ea241cafe9ad92f45aeacd2855acd218, type: 3}
       propertyPath: m_Name
