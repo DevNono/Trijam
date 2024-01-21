@@ -63,6 +63,10 @@ public class Day : MonoBehaviour
             instance.GetComponent<Animator>().SetInteger("position", i + 1);
         }
         StartPNJ(true);
+        money_bar.SetProgress(resource_money / 100f);
+        fidelity_bar.SetProgress(resource_fidelity / 100f);
+        badness_bar.SetProgress(resource_badness / 100f);
+        divine_auth_bar.SetProgress(resource_divine_authority / 100f);
     }
 
     public void StartPNJ(bool skipDeletion = false) {
@@ -81,7 +85,7 @@ public class Day : MonoBehaviour
             day_counter.UpdateTextValue($"{++dayNumber}");
             dayLength = remainingPNJCountOfTheDay = Random.Range(15, 21);
             kickCount += Mathf.CeilToInt(Random.Range(.2f, .5f) * resource_badness / 20f);
-            kickCount = Mathf.Min(10, kickCount);
+            kickCount = Mathf.Min(9, kickCount);
             kick_counter.UpdateTextValue($"{kickCount}");
         }
         remainingPNJCountOfTheDay--;
