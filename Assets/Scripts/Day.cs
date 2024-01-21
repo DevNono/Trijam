@@ -27,6 +27,8 @@ public class Day : MonoBehaviour
     [SerializeField]
     private AnimatedProgressBar divine_auth_bar;
     [SerializeField]
+    private AnimatedKickDialog kick_dialog;
+    [SerializeField]
     private UpdateText day_counter;
     [SerializeField]
     private UpdateText kick_counter;
@@ -59,9 +61,10 @@ public class Day : MonoBehaviour
     public void Start() {
         queue.Initialize();
         for (int i = 0; i < queue.pnjs.Count; i++) {
-            GameObject instance = Instantiate(pnjPrefab, pnjQueue);
+            GameObject instance = Instantiate(pnjPrefab, pnjQueue) as GameObject;
             instance.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = queue.pnjs[i].sprite;
             instance.GetComponent<Animator>().SetInteger("position", i + 1);
+            if(i > 0) kick_dialog.SpawnPrefab(instance);
         }
         StartPNJ(true);
         money_bar.SetProgress(resource_money / 100f);
@@ -105,6 +108,7 @@ public class Day : MonoBehaviour
         GameObject instance = Instantiate(pnjPrefab, pnjQueue);
         instance.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = queue.pnjs[^1].sprite;
         instance.GetComponent<Animator>().SetInteger("position", Queue.QUEUE_MAX_SIZE + 1);
+        kick_dialog.SpawnPrefab(instance);
 
         // Destroy old prefab and move all prefabs to their next position
         if (!skipDeletion) Destroy(pnjQueue.GetChild(0).gameObject);
@@ -161,31 +165,31 @@ public class Day : MonoBehaviour
             exclusiveDialog = noDivineAuthorityDialog;
             exclusivePNJ = noDivineAuthorityPNJ;
         }
+        if (exclusiveDialog == null && exclusivePNJ == null) {
+            kick_dialog.Delete(0);
+        }
         // Jump to next PNJ
         StartPNJ();
     }
 
-    public bool KickPNJ(GameObject obj) {
+    public bool KickPNJ(int position) {
         if (!CanKick()) return false;
+        if (position < 1 || position >= pnjQueue.childCount) return false;
+        Debug.Log($"Kick PNJ at position {position}");
         kickCount--;
         kick_counter.UpdateTextValue($"{kickCount}");
-        int position = -1;
-        for (int i = 0; i < queue.transform.childCount; i++) {
-            if (queue.transform.GetChild(i) == obj.transform) {
-                position = i;
-                break;
-            }
-        }
         queue.Kick(position);
-        Destroy(queue.transform.GetChild(position).gameObject);
-        for (int i = position; i < queue.transform.childCount; i++) {
-            Animator anim = queue.transform.GetChild(i).GetComponent<Animator>();
+        kick_dialog.Delete(position - 1);
+        Destroy(pnjQueue.GetChild(position).gameObject);
+        for (int i = position; i < pnjQueue.childCount; i++) {
+            Animator anim = pnjQueue.GetChild(i).GetComponent<Animator>();
             anim.SetInteger("position", anim.GetInteger("position") - 1);
             anim.SetTrigger("move");
         }
         GameObject instance = Instantiate(pnjPrefab, pnjQueue);
         instance.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = queue.pnjs[^1].sprite;
         instance.GetComponent<Animator>().SetInteger("position", Queue.QUEUE_MAX_SIZE);
+        kick_dialog.SpawnPrefab(instance);
         return true;
     }
 

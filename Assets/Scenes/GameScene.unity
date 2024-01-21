@@ -441,6 +441,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1023943375 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 805969682142530291, guid: 3170d7fbfc72d6e4e95611cb30273bdf, type: 3}
+  m_PrefabInstance: {fileID: 5675401925929588701}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87ce279a44350444b97d1ec9ff6fb9f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1026367084 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1006039315472156920, guid: c05cca174d514554bae954ba4201f0e7, type: 3}
@@ -508,6 +519,7 @@ MonoBehaviour:
   fidelity_bar: {fileID: 2813294472386114196}
   badness_bar: {fileID: 2813294472386114197}
   divine_auth_bar: {fileID: 2813294472386114198}
+  kick_dialog: {fileID: 1023943375}
   day_counter: {fileID: 2813294472386114199}
   kick_counter: {fileID: 1026367084}
   day_progress: {fileID: 1026367085}
@@ -1145,6 +1157,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 805969682142530291, guid: 3170d7fbfc72d6e4e95611cb30273bdf, type: 3}
+      propertyPath: fadeOutDuration
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 1173117154716202300, guid: 3170d7fbfc72d6e4e95611cb30273bdf, type: 3}
       propertyPath: m_Pivot.x
       value: 0
