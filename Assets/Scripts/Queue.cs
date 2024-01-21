@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using System.Linq;
 
 public class Queue : MonoBehaviour {
-    public static readonly int QUEUE_MAX_SIZE = 10;
+    public static readonly int QUEUE_MAX_SIZE = 4;
     [SerializeField]
     private List<PNJ> allPnjs;
     public List<PNJ> pnjs;

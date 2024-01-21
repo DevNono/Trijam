@@ -11,12 +11,6 @@ public class AnimatedProgressBar : MonoBehaviour
     private float currentProgress = 0.0f;
     private float targetProgress = 0.0f;
 
-    void Start()
-    {
-        // You can call StartProgress() or set initial progress here if needed
-        currentProgress = targetProgress = Mathf.Clamp01(0f);
-    }
-
     void Update()
     {
         // Update the progress animation
