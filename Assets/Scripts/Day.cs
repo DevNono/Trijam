@@ -97,13 +97,13 @@ public class Day : MonoBehaviour
         // Instanciate dialog, spawn last pnj
         GameObject instance = Instantiate(pnjPrefab, pnjQueue);
         instance.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = queue.pnjs[^1].sprite;
-        instance.GetComponent<Animator>().SetInteger("position", Queue.QUEUE_MAX_SIZE);
+        instance.GetComponent<Animator>().SetInteger("position", Queue.QUEUE_MAX_SIZE + 1);
 
         // Destroy old prefab and move all prefabs to their next position
         if (!skipDeletion) Destroy(pnjQueue.GetChild(0).gameObject);
         for (int i = 0; i < pnjQueue.childCount; i++) {
             Animator animator = pnjQueue.GetChild(i).GetComponent<Animator>();
-            animator.SetInteger("position", i - 1);
+            animator.SetInteger("position", animator.GetInteger("position") - 1);
             animator.GetComponent<Animator>().SetTrigger("move");
         }
 
@@ -172,8 +172,9 @@ public class Day : MonoBehaviour
         queue.Kick(position);
         Destroy(queue.transform.GetChild(position).gameObject);
         for (int i = position; i < queue.transform.childCount; i++) {
-            queue.transform.GetChild(i).GetComponent<Animator>().SetInteger("position", i - 1);
-            queue.transform.GetChild(i).GetComponent<Animator>().SetTrigger("move");
+            Animator anim = queue.transform.GetChild(i).GetComponent<Animator>();
+            anim.SetInteger("position", anim.GetInteger("position") - 1);
+            anim.SetTrigger("move");
         }
         GameObject instance = Instantiate(pnjPrefab, pnjQueue);
         instance.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = queue.pnjs[^1].sprite;
