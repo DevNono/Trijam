@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class DialogController : MonoBehaviour
 {
+    [SerializeField]
+    private Day manager;
+
     public void Accept()
     {
         Debug.Log("Accept");
-        // TODO: accepted
+        manager.EndPNJ(0);
     }
 
     public void Refuse()
     {
         Debug.Log("Refuse");
-        // TODO: refused
+        manager.EndPNJ(1);
     }
 }
