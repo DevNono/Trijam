@@ -75,6 +75,7 @@ public class Day : MonoBehaviour
             GameObject exclusiveInstance = Instantiate(pnjPrefab, pnjQueue);
             exclusiveInstance.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = exclusivePNJ.sprite;
             exclusiveInstance.GetComponent<Animator>().SetInteger("position", 0);
+            exclusiveInstance.GetComponent<Animator>().SetTrigger("move");
             // Display dialog
             dialogText.StartTextAnimation(exclusiveDialog.text);
             return;
@@ -89,7 +90,7 @@ public class Day : MonoBehaviour
             kick_counter.UpdateTextValue($"{kickCount}");
         }
         remainingPNJCountOfTheDay--;
-        day_progress.SetProgress(1f - (float) remainingPNJCountOfTheDay / dayLength);
+        day_progress.SetProgress(1f - (float)remainingPNJCountOfTheDay / dayLength);
 
         PNJ pnj = queue.PopPNJ();
         currentDialog = queue.ChooseDialog(pnj);
@@ -102,7 +103,8 @@ public class Day : MonoBehaviour
         if (!skipDeletion) Destroy(pnjQueue.GetChild(0).gameObject);
         for (int i = 0; i < pnjQueue.childCount; i++) {
             Animator animator = pnjQueue.GetChild(i).GetComponent<Animator>();
-            animator.SetInteger("position", i);
+            animator.SetInteger("position", i - 1);
+            animator.GetComponent<Animator>().SetTrigger("move");
         }
 
         // Spawn dialog with proper data
@@ -169,8 +171,10 @@ public class Day : MonoBehaviour
         }
         queue.Kick(position);
         Destroy(queue.transform.GetChild(position).gameObject);
-        for (int i = position; i < queue.transform.childCount; i++)
-            queue.transform.GetChild(i).GetComponent<Animator>().SetInteger("position", i);
+        for (int i = position; i < queue.transform.childCount; i++) {
+            queue.transform.GetChild(i).GetComponent<Animator>().SetInteger("position", i - 1);
+            queue.transform.GetChild(i).GetComponent<Animator>().SetTrigger("move");
+        }
         GameObject instance = Instantiate(pnjPrefab, pnjQueue);
         instance.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = queue.pnjs[^1].sprite;
         instance.GetComponent<Animator>().SetInteger("position", Queue.QUEUE_MAX_SIZE);
